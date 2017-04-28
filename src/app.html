@@ -1,39 +1,73 @@
 <template>
 
-  <div class="tile is-anchestor">
+  <div class="tile is-ancestor">
+    <div class="tile is-vertical is-12">
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-primary">
 
-    <div class="tile is-12 notification is-info">
-      <h1>${heading}</h1>
-    </div>
+          <section class="hero is-primary">
+            <div class="hero-body">
+              <div class="container">
+                <h1 class="title">
+                  ${heading}
+                </h1>
+                <h2 class="subtitle">
+                  Epic'ness awaits you Sir
+                </h2>
+              </div>
+            </div>
+          </section>
+        </article>
+      </div>
+      <div class="tile">
+        <div class="tile is-parent is-vertical">
+          <article class="tile is-child">
 
-    <div class="tile is-12 notification">
-      <form submit.trigger="addTodo()">
-        <p class="control has-icons-left">
-          <input class="input is-large" type="text"
-                 placeholder="Todo text here"
-                 value.bind="todoDescription">
-          <span class="icon is-small is-left">
+            <form submit.trigger="addTodo()">
+              <p class="control has-icons-left">
+                <input class="input is-large" type="text"
+                       placeholder="Todo text here"
+                       value.bind="todoDescription">
+                <span class="icon is-small is-left">
             <i class="fa fa-pencil"></i>
           </span>
-        </p>
-      </form>
-    </div>
+              </p>
+            </form>
+          </article>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child box">
+            <div class="content">
+              <h4 class="is-pulled-left">Todo:</h4>
+              <label class="checkbox is-pulled-right">
+                <input type="checkbox" checked.bind="config.hideCompleted">
+                Hide completed
+              </label>
 
-    <div class="tile is-12 notification content">
-      <p repeat.for="todo of todos" class="todo">
-        <label class="checkbox">
-          <input type="checkbox" class="checkbox is-small"
-                 checked.checkTodo="todo">
-          <span css="text-decoration: ${todo.done ? 'line-through' : 'none' }">
-            ${todo.description}
-          </span>
-        </label>
-        <span click.trigger="removeTodo(todo)" class="icon is-small">
-          <i class="fa fa-ban"></i>
-        </span>
-      </p>
-    </div>
+              <p repeat.for="todo of todos"
+                 class="todo clearfix"
+                 css="display: ${config.hideCompleted && todo.done ? 'none' : 'block'}"
+              >
+                <label class="checkbox">
+                  <input type="checkbox" class="checkbox is-small"
+                         change.trigger="checkTodo(todo)">
+                  <span css="text-decoration: ${todo.done ? 'line-through' : 'none' }">
+                    ${todo.description}
+                  </span>
+                </label>
+                <span click.trigger="removeTodo(todo)"
+                      class="icon is-small is-pulled-right remove-todo">
+                  <i class="fa fa-ban"></i>
+                </span>
+              </p>
+              <p>&nbsp;</p>
+            </div>
+          </article>
+        </div>
+      </div>
 
+
+    </div>
   </div>
 
 </template>

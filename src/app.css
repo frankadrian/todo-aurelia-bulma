@@ -4269,4 +4269,18 @@ label.panel-block {
   background-color: whitesmoke;
   padding: 3rem 1.5rem 6rem; }
 
+.clearfix {
+  clear: both; }
+
+.remove-todo {
+  display: none;
+  position: absolute;
+  margin-top: 5px;
+  right: 25px; }
+  .remove-todo:hover {
+    cursor: pointer; }
+
+.todo:hover .remove-todo {
+  display: inline-flex; }
+
 /*# sourceMappingURL=app.css.map */

@@ -1,10 +1,6 @@
 import {Todo} from './todo';
-import {observable} from 'aurelia-framework';
-
 
 export class App {
-
-  @observable todos;
 
   constructor() {
     this.heading         = 'Todos';
@@ -13,6 +9,9 @@ export class App {
       new Todo('See what the trash talk is all about')
     ];
     this.todoDescription = '';
+    this.config = {
+      hideCompleted: true
+    };
   }
 
   addTodo() {
@@ -33,7 +32,4 @@ export class App {
     todo.done = !todo.done;
   }
 
-  todosChanged(newValue, oldTodo) {
-    console.log('app.js:33:newValue', newValue);
-  }
 }

@@ -2,5 +2,19 @@
 
 $primary: $blue
 
-
 @import '../node_modules/bulma/bulma.sass'
+
+.clearfix
+  clear: both
+
+.remove-todo
+  display: none
+  position: absolute
+  margin-top: 5px
+  right: 25px
+  &:hover
+    cursor: pointer
+
+.todo:hover
+  .remove-todo
+    display: inline-flex
