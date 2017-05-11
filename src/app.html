@@ -29,9 +29,11 @@
                        placeholder="Todo text here"
                        value.bind="todoDescription">
                 <span class="icon is-small is-left">
-            <i class="fa fa-pencil"></i>
-          </span>
+                  <i class="fa fa-pencil"></i>
+                </span>
               </p>
+              <p class="content is-small is-pulled-right"
+                 css="display: ${todoDescription === '' ? 'none' : 'block'}">Hit Return to add item</p>
             </form>
           </article>
         </div>
@@ -48,16 +50,18 @@
                  class="todo clearfix"
                  css="display: ${config.hideCompleted && todo.done ? 'none' : 'block'}"
               >
-                <label class="checkbox">
+                <label class="checkbox todo-label" >
                   <input type="checkbox" class="checkbox is-small"
                          change.trigger="checkTodo(todo)">
-                  <span css="text-decoration: ${todo.done ? 'line-through' : 'none' }">
+                  <span css="text-decoration: ${todo.done ? 'line-through' : 'none' }"
+                        title="Complete item">
                     ${todo.description}
                   </span>
                 </label>
                 <span click.trigger="removeTodo(todo)"
+                      title="Remove item"
                       class="icon is-small is-pulled-right remove-todo">
-                  <i class="fa fa-ban"></i>
+                  <i class="fa fa-trash-o"></i>
                 </span>
               </p>
               <p>&nbsp;</p>
